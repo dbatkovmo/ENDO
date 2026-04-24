@@ -1,0 +1,43 @@
+// Значения задаются в `lib/ui` (design-primitives) и пробрасываются в :root через applyDesignTokens().
+$color-primary: var(--endo-color-primary);
+$color-success: var(--endo-color-success);
+$color-warning: var(--endo-color-warning);
+$color-error: var(--endo-color-error);
+$color-text: var(--endo-color-text);
+$color-text-secondary: var(--endo-color-text-secondary);
+$color-border: var(--endo-color-border);
+$color-bg: var(--endo-color-bg);
+$color-bg-subtle: var(--endo-color-bg-subtle);
+
+$font-family: var(--endo-font-family);
+$font-size-base: var(--endo-font-size-base);
+$font-size-sm: var(--endo-font-size-sm);
+$font-size-lg: var(--endo-font-size-lg);
+$font-size-xl: var(--endo-font-size-xl);
+
+$spacing-xs: var(--endo-space-xs);
+$spacing-sm: var(--endo-space-sm);
+$spacing-md: var(--endo-space-md);
+$spacing-lg: var(--endo-space-lg);
+$spacing-xl: var(--endo-space-xl);
+$spacing-xxl: var(--endo-space-xxl);
+
+$radius-sm: var(--endo-radius-sm);
+$radius-md: var(--endo-radius-md);
+$radius-lg: var(--endo-radius-lg);
+$radius-xl: var(--endo-radius-xl);
+
+$shadow-sm: var(--endo-shadow-sm);
+$shadow-md: var(--endo-shadow-md);
+$shadow-lg: var(--endo-shadow-lg);
+
+$bp-xs: var(--endo-bp-xs);
+$bp-sm: var(--endo-bp-sm);
+$bp-md: var(--endo-bp-md);
+$bp-lg: var(--endo-bp-lg);
+$bp-xl: var(--endo-bp-xl);
+$bp-xxl: var(--endo-bp-xxl);
+
+$transition-fast: var(--endo-transition-fast);
+$transition-base: var(--endo-transition-base);
+$transition-slow: var(--endo-transition-slow);

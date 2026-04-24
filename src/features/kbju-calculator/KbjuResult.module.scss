@@ -1,0 +1,225 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+// ── Бейджи ──────────────────────────────────────────────────
+.badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.goalTag {
+  font-size: 14px;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+// ── Карточка фазы цикла ─────────────────────────────────────
+.phaseCard {
+  border: 1.5px solid;
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.phaseCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phaseEmoji {
+  font-size: 32px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.phaseCardTitle {
+  margin: 0;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.phaseCardSub {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.phaseDeltaBadge {
+  margin-left: auto;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.phaseDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.phaseColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phaseColumnTitle {
+  margin: 0;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.phaseList {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  li {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.72);
+    line-height: 1.4;
+  }
+}
+
+.foodTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  :global(.ant-tag) {
+    border-radius: 20px;
+    font-size: 12px;
+    background: transparent;
+  }
+}
+
+// ── Стат-карточки ────────────────────────────────────────────
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  background: #fafafa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.targetCard {
+  background: #e6f4ff;
+}
+
+.hint {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+  text-align: center;
+  line-height: 1.4;
+}
+
+// ── КБЖУ ────────────────────────────────────────────────────
+.macrosCard {
+  border-radius: 12px;
+}
+
+.progressBar {
+  display: flex;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  gap: 2px;
+}
+
+.progressSegment {
+  border-radius: 2px;
+  transition: width 0.6s ease;
+  cursor: default;
+}
+
+.macros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.macroItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.macroHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.macroDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.macroLabel {
+  font-weight: 600;
+  font-size: 14px;
+  flex: 1;
+}
+
+.macroPct {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.macroValue {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.macroKcal {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+// ── Дисклеймер ──────────────────────────────────────────────
+.disclaimer {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.35);
+  text-align: center;
+  margin: 0;
+  line-height: 1.5;
+}
