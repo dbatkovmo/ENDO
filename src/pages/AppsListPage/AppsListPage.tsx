@@ -12,6 +12,34 @@ const apps = [
     path: '/apps/kbju',
     emoji: '🥗',
   },
+  {
+    key: 'energy',
+    title: 'Квиз «Энергия»',
+    description: 'Оценка уровня энергии и подсказки по образу жизни',
+    path: '/apps/energy',
+    emoji: '⚡',
+  },
+  {
+    key: 'weight-stall',
+    title: 'Плато веса',
+    description: 'Квиз: почему вес стоит и что можно сделать дальше',
+    path: '/apps/weight-stall',
+    emoji: '⚖️',
+  },
+  {
+    key: 'hormone',
+    title: 'Гормональный чек',
+    description: 'Ориентировочная оценка симптомов для разговора со специалистом',
+    path: '/apps/hormone',
+    emoji: '🧬',
+  },
+  {
+    key: 'sweet-craving',
+    title: 'Почему хочется сладкого?',
+    description: 'Короткий тест: возможные причины тяги к сладкому (не диагноз)',
+    path: '/apps/sweet-craving',
+    emoji: '🍬',
+  },
 ]
 
 export function AppsListPage() {

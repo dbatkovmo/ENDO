@@ -1,0 +1,1 @@
+export { SweetCravingPage } from './SweetCravingPage'

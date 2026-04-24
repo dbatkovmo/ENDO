@@ -3,6 +3,10 @@ import { MiniAppsLayout } from '@/layouts/MiniAppsLayout'
 import { LandingPage } from '@/pages/LandingPage'
 import { AppsListPage } from '@/pages/AppsListPage'
 import { KbjuCalculatorPage } from '@/pages/KbjuCalculatorPage'
+import { EnergyQuizPage } from '@/pages/EnergyQuizPage'
+import { WeightStallPage } from '@/pages/WeightStallPage'
+import { HormoneCheckPage } from '@/pages/HormoneCheckPage'
+import { SweetCravingPage } from '@/pages/SweetCravingPage'
 import { TaplinkPage } from '@/pages/TaplinkPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
@@ -15,6 +19,10 @@ export default function App() {
         <Route path="/apps" element={<MiniAppsLayout />}>
           <Route index element={<AppsListPage />} />
           <Route path="kbju" element={<KbjuCalculatorPage />} />
+          <Route path="energy" element={<EnergyQuizPage />} />
+          <Route path="weight-stall" element={<WeightStallPage />} />
+          <Route path="hormone" element={<HormoneCheckPage />} />
+          <Route path="sweet-craving" element={<SweetCravingPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
