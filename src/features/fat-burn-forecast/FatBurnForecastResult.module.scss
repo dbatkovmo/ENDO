@@ -1,0 +1,144 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  border-radius: 14px;
+  background: #fafafa;
+}
+
+.statHint {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.forecastCard {
+  border-radius: 16px;
+  padding: 20px;
+  border: 1.5px solid #e8e8e8;
+  background: #fff;
+}
+
+.forecastTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.forecastLabel {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.84);
+}
+
+.forecastValue {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.forecastHint {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.infoCard,
+.notesCard,
+.cta {
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+
+.infoCard {
+  border: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.86);
+}
+
+.infoText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.68);
+}
+
+.warnings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.warning {
+  border-radius: 12px;
+}
+
+.notesCard {
+  border: 1px solid #d6e4ff;
+  background: #f5f9ff;
+}
+
+.cta {
+  background: linear-gradient(135deg, #fff7e6 0%, #fff 100%);
+  border: 1.5px solid #ffd591;
+}
+
+.ctaTitle {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.ctaText {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.62);
+}

@@ -1,4 +1,4 @@
-import type { Question, WeightStallCategory } from './weight-stall-quiz.types'
+import type { Question, WeightStallCause, WeightStallCategory } from './weight-stall-quiz.types'
 
 export const QUESTIONS: Question[] = [
   {
@@ -14,8 +14,8 @@ export const QUESTIONS: Question[] = [
     id: 'tracking',
     text: 'Считаете ли вы калории?',
     options: [
-      { id: 'precise', label: 'Да, точно взвешиваю и считаю', scores: {} },
-      { id: 'rough', label: 'Примерно, на глаз', scores: { nutritionError: 2 } },
+      { id: 'precise', label: 'Да, точно', scores: {} },
+      { id: 'rough', label: 'Примерно', scores: { nutritionError: 2 } },
       { id: 'no', label: 'Нет', scores: { nutritionError: 3 } },
     ],
   },
@@ -30,17 +30,17 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 'sleep',
-    text: 'Бывает ли у вас сон менее 6 часов?',
+    text: 'Есть ли сон меньше 6 часов?',
     options: [
-      { id: 'no', label: 'Нет, сплю достаточно', scores: {} },
-      { id: 'yes', label: 'Да, регулярно не высыпаюсь', scores: { stressSleep: 3 } },
+      { id: 'no', label: 'Нет', scores: {} },
+      { id: 'yes', label: 'Да', scores: { stressSleep: 3 } },
     ],
   },
   {
     id: 'stress',
-    text: 'Как бы вы оценили уровень стресса?',
+    text: 'Есть ли высокий стресс?',
     options: [
-      { id: 'low', label: 'Низкий', scores: {} },
+      { id: 'low', label: 'Нет', scores: {} },
       { id: 'moderate', label: 'Умеренный', scores: { stressSleep: 1 } },
       { id: 'high', label: 'Высокий', scores: { stressSleep: 3 } },
     ],
@@ -64,10 +64,10 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 'cycle',
-    text: 'Есть ли нерегулярный менструальный цикл?',
+    text: 'У женщин: есть ли нерегулярный цикл?',
     options: [
-      { id: 'no', label: 'Нет, регулярный', scores: {} },
-      { id: 'yes', label: 'Да, нерегулярный', scores: { hormone: 3 } },
+      { id: 'no', label: 'Нет', scores: {} },
+      { id: 'yes', label: 'Да', scores: { hormone: 3 } },
       { id: 'na', label: 'Не актуально', scores: {} },
     ],
   },
@@ -87,95 +87,99 @@ export interface CauseConfig {
   color: string
   tagColor: string
   description: string
-  explanation: string
-  tips: string[]
+  recommendations: string[]
 }
 
-export const CAUSE_CONFIGS: Record<WeightStallCategory, CauseConfig> = {
+export const CAUSE_CONFIGS: Record<WeightStallCause, CauseConfig> = {
   nutritionError: {
-    title: 'Скрытый перебор калорий', emoji: '🍽️', color: '#d4380d', tagColor: 'volcano',
-    description: 'Небольшие «невидимые» калории могут полностью нивелировать дефицит.',
-    explanation: 'Люди недооценивают реальное потребление в среднем на 20–40%. Кофе с молоком, ложка масла, горсть орехов — всё это складывается в сотни калорий.',
-    tips: [
-      'Взвешивайте еду хотя бы 2 недели',
-      'Учитывайте все напитки: кофе с молоком, смузи, соки',
-      'Проверьте вечерние «автоматические» перекусы',
+    title: 'Скрытый перебор калорий',
+    emoji: '🍽️',
+    color: '#d4380d',
+    tagColor: 'volcano',
+    description: 'Даже небольшие перекусы и напитки могут незаметно убрать дефицит калорий.',
+    recommendations: [
+      'На 7–14 дней начните считать еду точнее и взвешивать порции.',
+      'Записывайте перекусы, кофе с молоком, орехи, сладости и соусы.',
+      'Сравните фактический рацион с вашей текущей нормой калорий.',
     ],
   },
   stressSleep: {
-    title: 'Недосып и хронический стресс', emoji: '😴', color: '#2f54eb', tagColor: 'geekblue',
-    description: 'Высокий кортизол блокирует жиросжигание и усиливает тягу к еде.',
-    explanation: 'При хроническом стрессе кортизол удерживается на высоком уровне: стимулирует накопление жира, разрушает мышцы, снижает чувствительность к инсулину.',
-    tips: [
-      'Нормализуйте сон до 7–8 часов',
-      'Добавьте прогулки и дыхательные практики',
-      'Временно снизьте интенсивность тренировок',
+    title: 'Недосып и стресс',
+    emoji: '😴',
+    color: '#2f54eb',
+    tagColor: 'geekblue',
+    description: 'Недосып и высокий стресс могут усиливать аппетит, задерживать воду и мешать снижению веса.',
+    recommendations: [
+      'Постарайтесь вернуть сон хотя бы к 7 часам в сутки.',
+      'Добавьте регулярные прогулки, паузы на отдых и снижение перегруза.',
+      'Если тренировки выматывают, временно уменьшите их интенсивность.',
     ],
   },
   insulin: {
-    title: 'Возможная инсулинорезистентность', emoji: '📈', color: '#fa8c16', tagColor: 'orange',
-    description: 'Клетки «не слышат» инсулин — организм не может эффективно использовать жировые запасы.',
-    explanation: 'Тяга к сладкому и сонливость после еды — классические признаки. Это состояние хорошо корректируется, но нужны анализы.',
-    tips: [
-      'Ограничьте быстрые углеводы и сахар',
-      'Добавляйте белок и клетчатку к каждому приёму',
-      'Сдайте: глюкоза, инсулин, HOMA-IR',
+    title: 'Возможная инсулинорезистентность',
+    emoji: '📈',
+    color: '#fa8c16',
+    tagColor: 'orange',
+    description: 'Тяга к сладкому и сонливость после еды могут быть связаны с нарушением углеводного обмена.',
+    recommendations: [
+      'Сделайте приемы пищи более сытными за счет белка и клетчатки.',
+      'Сократите сладкие напитки, десерты и частые быстрые углеводы.',
+      'Обсудите со специалистом анализы на глюкозу, инсулин и HOMA-IR.',
     ],
   },
-  hormone: {
-    title: 'Гормональные нарушения', emoji: '🌸', color: '#c41d7f', tagColor: 'magenta',
-    description: 'Дисбаланс половых гормонов влияет на метаболизм и склонность к накоплению жира.',
-    explanation: 'Нерегулярный цикл может указывать на СПКЯ и другие состояния, при которых вес уходит медленно даже в дефиците.',
-    tips: [
-      'Обратитесь к гинекологу-эндокринологу',
-      'Сдайте: ЛГ, ФСГ, пролактин, тестостерон',
-      'Нормализация фона ускоряет снижение веса',
-    ],
-  },
-  thyroid: {
-    title: 'Возможный гипотиреоз', emoji: '🦋', color: '#13c2c2', tagColor: 'cyan',
-    description: 'Щитовидная железа регулирует метаболизм. При гипотиреозе вес стоит даже при дефиците.',
-    explanation: 'Гипотиреоз — одна из часто пропускаемых причин плато. Простой анализ ТТГ позволяет быстро исключить или подтвердить.',
-    tips: [
-      'Сдайте ТТГ и свободный Т4',
-      'Не принимайте йод без назначения',
-      'Лечение восстанавливает нормальный метаболизм',
+  hormonal: {
+    title: 'Гормональные причины',
+    emoji: '🧬',
+    color: '#c41d7f',
+    tagColor: 'magenta',
+    description: 'Нерегулярный цикл, проблемы со щитовидной железой и другие гормональные факторы могут мешать снижению веса.',
+    recommendations: [
+      'Не пытайтесь лечить это самостоятельно только диетой и тренировками.',
+      'Запишитесь к эндокринологу или гинекологу-эндокринологу.',
+      'Обсудите со специалистом, нужны ли ТТГ, свободный Т4 и половые гормоны.',
     ],
   },
   waterRetention: {
-    title: 'Задержка жидкости', emoji: '💧', color: '#1677ff', tagColor: 'blue',
-    description: 'Отёки могут маскировать реальное снижение жировой массы.',
-    explanation: 'Соль, гормональные колебания, воспаление задерживают воду. Жир уходит, а вес на весах стоит из-за «водного балласта».',
-    tips: [
-      'Ограничьте соль до 3–5 г в день',
-      'Пейте достаточно воды — это снимает отёки',
-      'Добавьте движение для лимфодренажа',
+    title: 'Задержка жидкости',
+    emoji: '💧',
+    color: '#1677ff',
+    tagColor: 'blue',
+    description: 'Отёки и колебания жидкости могут маскировать реальное снижение жировой массы.',
+    recommendations: [
+      'Смотрите не только на вес, но и на объемы тела и самочувствие.',
+      'Старайтесь не злоупотреблять соленой едой и алкоголем.',
+      'Поддерживайте регулярное движение и достаточное потребление воды.',
     ],
   },
   plateau: {
-    title: 'Нормальное метаболическое плато', emoji: '⚖️', color: '#389e0d', tagColor: 'green',
-    description: 'После недель похудения организм адаптируется — это нормальная физиология.',
-    explanation: 'Метаболическая адаптация — защитный механизм. При долгом дефиците тело «экономит» энергию. Нужно скорректировать стратегию.',
-    tips: [
-      'Пересчитайте норму калорий',
-      'Попробуйте рефид-день раз в 1–2 недели',
-      'Смените тип или интенсивность тренировок',
+    title: 'Нормальное плато',
+    emoji: '⚖️',
+    color: '#389e0d',
+    tagColor: 'green',
+    description: 'Иногда вес временно стоит даже при хорошем плане питания и активности.',
+    recommendations: [
+      'Оценивайте динамику не по 2–3 дням, а хотя бы по нескольким неделям.',
+      'Проверьте, не изменилась ли ваша текущая норма калорий на фоне похудения.',
+      'Ориентируйтесь не только на вес, но и на объемы, фото и общее самочувствие.',
     ],
   },
 }
 
-export const ALL_LABS: { name: string; categories: WeightStallCategory[] }[] = [
-  { name: 'ТТГ', categories: ['thyroid'] },
-  { name: 'Свободный Т4', categories: ['thyroid'] },
-  { name: 'Глюкоза натощак', categories: ['insulin'] },
-  { name: 'Инсулин натощак', categories: ['insulin'] },
-  { name: 'HOMA-IR', categories: ['insulin'] },
-  { name: 'ЛГ и ФСГ', categories: ['hormone'] },
-  { name: 'Пролактин', categories: ['hormone'] },
-  { name: 'Тестостерон общий', categories: ['hormone', 'insulin'] },
-  { name: 'Кортизол утренний', categories: ['stressSleep'] },
-]
+export const CATEGORY_TO_CAUSE: Record<WeightStallCategory, WeightStallCause> = {
+  nutritionError: 'nutritionError',
+  stressSleep: 'stressSleep',
+  insulin: 'insulin',
+  hormone: 'hormonal',
+  thyroid: 'hormonal',
+  waterRetention: 'waterRetention',
+  plateau: 'plateau',
+}
 
-export const CATEGORY_PRIORITY: WeightStallCategory[] = [
-  'thyroid', 'hormone', 'insulin', 'nutritionError', 'stressSleep', 'waterRetention', 'plateau',
+export const CAUSE_PRIORITY: WeightStallCause[] = [
+  'nutritionError',
+  'stressSleep',
+  'insulin',
+  'hormonal',
+  'waterRetention',
+  'plateau',
 ]

@@ -1,0 +1,1 @@
+export { FatBurnForecastPage } from './FatBurnForecastPage'

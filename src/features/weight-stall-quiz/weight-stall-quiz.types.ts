@@ -1,8 +1,22 @@
 export type WeightStallCategory =
-  | 'nutritionError' | 'stressSleep' | 'insulin' | 'hormone'
-  | 'thyroid' | 'waterRetention' | 'plateau'
+  | 'nutritionError'
+  | 'stressSleep'
+  | 'insulin'
+  | 'hormone'
+  | 'thyroid'
+  | 'waterRetention'
+  | 'plateau'
+
+export type WeightStallCause =
+  | 'nutritionError'
+  | 'stressSleep'
+  | 'insulin'
+  | 'hormonal'
+  | 'waterRetention'
+  | 'plateau'
 
 export type CategoryScores = Record<WeightStallCategory, number>
+export type CauseScores = Record<WeightStallCause, number>
 
 export interface AnswerOption {
   id: string
@@ -17,8 +31,8 @@ export interface Question {
 }
 
 export interface WeightStallResult {
-  primary: WeightStallCategory
-  secondary: WeightStallCategory | null
-  others: WeightStallCategory[]
-  scores: CategoryScores
+  primary: WeightStallCause
+  secondary: WeightStallCause | null
+  categoryScores: CategoryScores
+  causeScores: CauseScores
 }

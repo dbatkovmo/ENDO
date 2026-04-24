@@ -1,14 +1,283 @@
+.page {
+  position: relative;
+  padding: 32px 0 72px;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  margin: 0 auto 42px;
+  max-width: 760px;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: -48px 16% auto;
+  height: 180px;
+  background:
+    radial-gradient(circle at center, rgba(232, 222, 208, 0.88) 0%, rgba(232, 222, 208, 0.34) 42%, rgba(232, 222, 208, 0) 72%);
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: #213126;
+}
+
+.subtitle {
+  position: relative;
+  z-index: 1;
+  margin: 16px auto 0;
+  max-width: 620px;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.55;
+  color: rgba(58, 69, 62, 0.72);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
 .card {
-  height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  --card-accent: #95a071;
+  --card-shadow: rgba(200, 188, 171, 0.42);
+  --card-border: rgba(220, 214, 205, 0.7);
+  --card-fill: rgba(255, 255, 255, 0.84);
+  --card-medallion: #f2ece4;
+  --leaf-fill: #aab38c;
+  --leaf-stem: #89916b;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  min-height: 360px;
+  padding: 28px 26px 30px;
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, var(--card-fill) 100%);
+  box-shadow:
+    0 18px 50px -30px var(--card-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    border-color: rgba(191, 183, 169, 0.9);
+    box-shadow:
+      0 24px 60px -28px var(--card-shadow),
+      inset 0 1px 0 rgba(255, 255, 255, 0.92);
   }
 }
 
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 152px;
+  height: 142px;
+}
+
+.medallion {
+  display: grid;
+  place-items: center;
+  width: 142px;
+  height: 142px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.14) 28%, transparent 52%),
+    var(--card-medallion);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
 .emoji {
-  font-size: 28px;
+  font-size: 64px;
   line-height: 1;
+  filter: saturate(0.78) sepia(0.1);
+}
+
+.branch {
+  position: absolute;
+  right: 6px;
+  bottom: 8px;
+  width: 62px;
+  height: 84px;
+}
+
+.stem {
+  position: absolute;
+  inset: 18px 22px 2px auto;
+  width: 30px;
+  border-right: 2px solid var(--leaf-stem);
+  border-radius: 0 0 32px 0;
+  transform: rotate(26deg);
+  transform-origin: bottom right;
+}
+
+.leaf {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 12px;
+  border-radius: 80% 10% 80% 10%;
+  background: linear-gradient(135deg, rgba(214, 220, 192, 0.98), var(--leaf-fill));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.46);
+}
+
+.leafTop {
+  top: 22px;
+  right: 20px;
+  transform: rotate(-22deg);
+}
+
+.leafMiddle {
+  top: 42px;
+  right: 8px;
+  transform: rotate(18deg) scale(1.04);
+}
+
+.leafBottom {
+  top: 58px;
+  right: 22px;
+  transform: rotate(-30deg) scale(0.96);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  font-size: clamp(24px, 2vw, 28px);
+  font-weight: 500;
+  line-height: 1.16;
+  color: #222d25;
+  text-wrap: balance;
+}
+
+.divider {
+  width: 46px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--card-accent);
+  opacity: 0.86;
+}
+
+.cardDescription {
+  margin: 0;
+  max-width: 280px;
+  font-family: 'Avenir Next', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.72;
+  color: rgba(79, 86, 80, 0.76);
+}
+
+.sage {
+  --card-accent: #93a16f;
+  --card-shadow: rgba(196, 188, 169, 0.44);
+  --card-medallion: #f2ede5;
+  --leaf-fill: #a7b28a;
+  --leaf-stem: #89936d;
+}
+
+.amber {
+  --card-accent: #b18c56;
+  --card-shadow: rgba(194, 174, 143, 0.45);
+  --card-medallion: #f4eee6;
+  --leaf-fill: #b7bb95;
+  --leaf-stem: #93835c;
+}
+
+.stone {
+  --card-accent: #948c70;
+  --card-shadow: rgba(182, 176, 163, 0.44);
+  --card-medallion: #f1ece7;
+  --leaf-fill: #aeb18f;
+  --leaf-stem: #8c866b;
+}
+
+.ocean {
+  --card-accent: #6f9a9b;
+  --card-shadow: rgba(170, 191, 192, 0.42);
+  --card-medallion: #edf3f2;
+  --leaf-fill: #9ab7ab;
+  --leaf-stem: #6f8e88;
+}
+
+.rose {
+  --card-accent: #b58a90;
+  --card-shadow: rgba(200, 178, 181, 0.42);
+  --card-medallion: #f5edef;
+  --leaf-fill: #b0b698;
+  --leaf-stem: #95827c;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 12px 0 40px;
+  }
+
+  .hero {
+    margin-bottom: 28px;
+  }
+
+  .heroGlow {
+    inset: -36px 0 auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card {
+    min-height: 0;
+    gap: 22px;
+    padding: 24px 20px;
+    border-radius: 24px;
+  }
+
+  .visual {
+    width: 134px;
+    height: 126px;
+  }
+
+  .medallion {
+    width: 126px;
+    height: 126px;
+  }
+
+  .emoji {
+    font-size: 56px;
+  }
+
+  .cardDescription {
+    max-width: 100%;
+    font-size: 14px;
+  }
 }

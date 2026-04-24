@@ -7,6 +7,9 @@ import { EnergyQuizPage } from '@/pages/EnergyQuizPage'
 import { WeightStallPage } from '@/pages/WeightStallPage'
 import { HormoneCheckPage } from '@/pages/HormoneCheckPage'
 import { SweetCravingPage } from '@/pages/SweetCravingPage'
+import { DayRationAnalysisPage } from '@/pages/DayRationAnalysisPage'
+import { FatBurnForecastPage } from '@/pages/FatBurnForecastPage'
+import { NeedAnalysesPage } from '@/pages/NeedAnalysesPage'
 import { TaplinkPage } from '@/pages/TaplinkPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
@@ -21,6 +24,9 @@ export default function App() {
           <Route path="kbju" element={<KbjuCalculatorPage />} />
           <Route path="energy" element={<EnergyQuizPage />} />
           <Route path="weight-stall" element={<WeightStallPage />} />
+          <Route path="ration-day" element={<DayRationAnalysisPage />} />
+          <Route path="fat-burn-forecast" element={<FatBurnForecastPage />} />
+          <Route path="need-analyses" element={<NeedAnalysesPage />} />
           <Route path="hormone" element={<HormoneCheckPage />} />
           <Route path="sweet-craving" element={<SweetCravingPage />} />
         </Route>

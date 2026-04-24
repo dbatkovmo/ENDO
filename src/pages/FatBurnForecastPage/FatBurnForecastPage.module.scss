@@ -1,0 +1,42 @@
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.icon {
+  font-size: 40px;
+  color: #fa541c;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0 0 8px !important;
+}
+
+.subtitle {
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0 !important;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.formCard,
+.resultCard {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.divider {
+  margin: 24px 0;
+}

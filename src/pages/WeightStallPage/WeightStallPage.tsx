@@ -6,6 +6,10 @@ import styles from './WeightStallPage.module.scss'
 
 type Stage = 'quiz' | 'result'
 
+function scrollToTop() {
+  globalThis.scrollTo?.({ top: 0, behavior: 'smooth' })
+}
+
 export function WeightStallPage() {
   const [stage, setStage] = useState<Stage>('quiz')
   const [result, setResult] = useState<WeightStallResultType | null>(null)
@@ -13,11 +17,12 @@ export function WeightStallPage() {
   const handleFinish = (answers: Record<string, AnswerOption>) => {
     setResult(calculate(answers))
     setStage('result')
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    scrollToTop()
   }
   const handleRetake = () => {
-    setResult(null); setStage('quiz')
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setResult(null)
+    setStage('quiz')
+    scrollToTop()
   }
 
   return (
@@ -27,8 +32,8 @@ export function WeightStallPage() {
         <h1 className={styles.title}>Почему я не худею?</h1>
         <p className={styles.subtitle}>
           {stage === 'quiz'
-            ? '9 вопросов — и вы узнаете возможную причину остановки веса'
-            : 'Разбираем, что может стоять за плато на весах'}
+            ? '9 вопросов — и вы получите 1–2 основные причины, почему вес стоит'
+            : 'Главная причина, вторичная причина и что можно сделать дальше'}
         </p>
       </div>
       <Card className={styles.card}>
