@@ -1,0 +1,343 @@
+// ============================================================
+// AppsListPage — все значения здесь. Меняй сверху, ищи по имени.
+// ============================================================
+
+// --- Цвета: текст и заголовки ---
+$title-color: #213126;
+$card-title-color: #222d25;
+$subtitle-color: rgba(58, 69, 62, 0.72);
+$description-color: rgba(79, 86, 80, 0.76);
+
+// --- Цвета: hero-glow (свечение за заголовком) ---
+$hero-glow-strong: rgba(232, 222, 208, 0.88);
+$hero-glow-mid: rgba(232, 222, 208, 0.34);
+$hero-glow-fade: rgba(232, 222, 208, 0);
+
+// --- Цвета карточки (база, переопределяется модификаторами) ---
+$card-border: rgba(220, 214, 205, 0.7);
+$card-border-hover: rgba(191, 183, 169, 0.9);
+$card-fill: rgba(255, 255, 255, 0.84);
+$card-bg-top: rgba(255, 255, 255, 0.92);
+$card-inset-highlight: rgba(255, 255, 255, 0.78);
+$card-inset-highlight-hover: rgba(255, 255, 255, 0.92);
+
+// --- Палитра тонов карточек ---
+$tone-sage-accent:    #93a16f;
+$tone-sage-shadow:    rgba(196, 188, 169, 0.44);
+$tone-sage-medallion: #f2ede5;
+
+$tone-amber-accent:    #b18c56;
+$tone-amber-shadow:    rgba(194, 174, 143, 0.45);
+$tone-amber-medallion: #f4eee6;
+
+$tone-stone-accent:    #948c70;
+$tone-stone-shadow:    rgba(182, 176, 163, 0.44);
+$tone-stone-medallion: #f1ece7;
+
+$tone-ocean-accent:    #6f9a9b;
+$tone-ocean-shadow:    rgba(170, 191, 192, 0.42);
+$tone-ocean-medallion: #edf3f2;
+
+$tone-rose-accent:    #b58a90;
+$tone-rose-shadow:    rgba(200, 178, 181, 0.42);
+$tone-rose-medallion: #f5edef;
+
+// База (= sage)
+$card-accent-default:    $tone-sage-accent;
+$card-shadow-default:    rgba(200, 188, 171, 0.42);
+$card-medallion-default: #f2ece4;
+
+// --- Шрифты ---
+$font-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+$font-sans:  'Avenir Next', 'Segoe UI', sans-serif;
+
+// --- Размеры шрифтов ---
+$title-size:        clamp(42px, 5vw, 64px);
+$subtitle-size:     clamp(18px, 2vw, 22px);
+$card-title-size:   clamp(24px, 2vw, 28px);
+$description-size:  15px;
+$emoji-size:        64px;
+
+// --- Раскладка страницы ---
+$page-padding-y:        32px;
+$page-padding-bottom:   72px;
+$hero-margin-bottom:    42px;
+$hero-max-width:        760px;
+$subtitle-max-width:    620px;
+$grid-gap:              28px;
+$grid-columns:          3;
+
+// --- Раскладка карточки ---
+$card-min-height:    360px;
+$card-padding:       28px 26px 30px;
+$card-radius:        30px;
+$card-gap:           28px;
+$card-hover-lift:    -6px;
+$visual-width:       152px;
+$visual-height:      142px;
+$medallion-size:     142px;
+$divider-width:      46px;
+$divider-height:     3px;
+$description-max-width: 280px;
+
+// --- Тени ---
+$card-shadow-y:      18px;
+$card-shadow-blur:   50px;
+$card-shadow-spread: -30px;
+$card-shadow-y-hover:      24px;
+$card-shadow-blur-hover:   60px;
+$card-shadow-spread-hover: -28px;
+
+// --- Прочее ---
+$transition: 0.25s ease;
+$hero-glow-blur: 16px;
+
+// --- Брейкпоинты ---
+$bp-tablet: 1100px;
+$bp-mobile: 720px;
+
+// --- Мобильные оверрайды ---
+$mobile-page-padding-y:    12px;
+$mobile-page-padding-bot:  40px;
+$mobile-hero-margin:       28px;
+$mobile-grid-gap:          18px;
+$mobile-card-padding:      24px 20px;
+$mobile-card-radius:       24px;
+$mobile-card-gap:          22px;
+$mobile-visual-width:      134px;
+$mobile-visual-height:     126px;
+$mobile-medallion-size:    126px;
+$mobile-emoji-size:        56px;
+$mobile-description-size:  14px;
+
+// ============================================================
+// Стили
+// ============================================================
+
+.apps-list {
+  position: relative;
+  padding: $page-padding-y 0 $page-padding-bottom;
+}
+
+.apps-list__hero {
+  position: relative;
+  text-align: center;
+  margin: 0 auto $hero-margin-bottom;
+  max-width: $hero-max-width;
+}
+
+.apps-list__hero-glow {
+  position: absolute;
+  inset: -48px 16% auto;
+  height: 180px;
+  background: radial-gradient(
+    circle at center,
+    $hero-glow-strong 0%,
+    $hero-glow-mid 42%,
+    $hero-glow-fade 72%
+  );
+  filter: blur($hero-glow-blur);
+  pointer-events: none;
+}
+
+.apps-list__title {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: $font-serif;
+  font-size: $title-size;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: $title-color;
+}
+
+.apps-list__subtitle {
+  position: relative;
+  z-index: 1;
+  margin: 16px auto 0;
+  max-width: $subtitle-max-width;
+  font-family: $font-sans;
+  font-size: $subtitle-size;
+  line-height: 1.55;
+  color: $subtitle-color;
+}
+
+.apps-list__grid {
+  display: grid;
+  grid-template-columns: repeat($grid-columns, minmax(0, 1fr));
+  gap: $grid-gap;
+}
+
+.apps-list__card {
+  --card-accent: #{$card-accent-default};
+  --card-shadow: #{$card-shadow-default};
+  --card-medallion: #{$card-medallion-default};
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $card-gap;
+  min-height: $card-min-height;
+  padding: $card-padding;
+  border: 1px solid $card-border;
+  border-radius: $card-radius;
+  background: linear-gradient(180deg, $card-bg-top 0%, $card-fill 100%);
+  box-shadow:
+    0 $card-shadow-y $card-shadow-blur $card-shadow-spread var(--card-shadow),
+    inset 0 1px 0 $card-inset-highlight;
+  cursor: pointer;
+  text-align: center;
+  transition: transform $transition, box-shadow $transition, border-color $transition;
+
+  &:hover {
+    transform: translateY($card-hover-lift);
+    border-color: $card-border-hover;
+    box-shadow:
+      0 $card-shadow-y-hover $card-shadow-blur-hover $card-shadow-spread-hover var(--card-shadow),
+      inset 0 1px 0 $card-inset-highlight-hover;
+  }
+}
+
+.apps-list__card--sage {
+  --card-accent: #{$tone-sage-accent};
+  --card-shadow: #{$tone-sage-shadow};
+  --card-medallion: #{$tone-sage-medallion};
+}
+
+.apps-list__card--amber {
+  --card-accent: #{$tone-amber-accent};
+  --card-shadow: #{$tone-amber-shadow};
+  --card-medallion: #{$tone-amber-medallion};
+}
+
+.apps-list__card--stone {
+  --card-accent: #{$tone-stone-accent};
+  --card-shadow: #{$tone-stone-shadow};
+  --card-medallion: #{$tone-stone-medallion};
+}
+
+.apps-list__card--ocean {
+  --card-accent: #{$tone-ocean-accent};
+  --card-shadow: #{$tone-ocean-shadow};
+  --card-medallion: #{$tone-ocean-medallion};
+}
+
+.apps-list__card--rose {
+  --card-accent: #{$tone-rose-accent};
+  --card-shadow: #{$tone-rose-shadow};
+  --card-medallion: #{$tone-rose-medallion};
+}
+
+.apps-list__visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $visual-width;
+  height: $visual-height;
+}
+
+.apps-list__medallion {
+  display: grid;
+  place-items: center;
+  width: $medallion-size;
+  height: $medallion-size;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.14) 28%, transparent 52%),
+    var(--card-medallion);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
+.apps-list__emoji {
+  font-size: $emoji-size;
+  line-height: 1;
+  filter: saturate(0.78) sepia(0.1);
+}
+
+.apps-list__card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.apps-list__card-title {
+  margin: 0;
+  font-family: $font-serif;
+  font-size: $card-title-size;
+  font-weight: 500;
+  line-height: 1.16;
+  color: $card-title-color;
+  text-wrap: balance;
+}
+
+.apps-list__divider {
+  width: $divider-width;
+  height: $divider-height;
+  border-radius: 999px;
+  background: var(--card-accent);
+  opacity: 0.86;
+}
+
+.apps-list__card-description {
+  margin: 0;
+  max-width: $description-max-width;
+  font-family: $font-sans;
+  font-size: $description-size;
+  line-height: 1.72;
+  color: $description-color;
+}
+
+@media (max-width: $bp-tablet) {
+  .apps-list__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: $bp-mobile) {
+  .apps-list {
+    padding: $mobile-page-padding-y 0 $mobile-page-padding-bot;
+  }
+
+  .apps-list__hero {
+    margin-bottom: $mobile-hero-margin;
+  }
+
+  .apps-list__hero-glow {
+    inset: -36px 0 auto;
+  }
+
+  .apps-list__grid {
+    grid-template-columns: 1fr;
+    gap: $mobile-grid-gap;
+  }
+
+  .apps-list__card {
+    min-height: 0;
+    gap: $mobile-card-gap;
+    padding: $mobile-card-padding;
+    border-radius: $mobile-card-radius;
+  }
+
+  .apps-list__visual {
+    width: $mobile-visual-width;
+    height: $mobile-visual-height;
+  }
+
+  .apps-list__medallion {
+    width: $mobile-medallion-size;
+    height: $mobile-medallion-size;
+  }
+
+  .apps-list__emoji {
+    font-size: $mobile-emoji-size;
+  }
+
+  .apps-list__card-description {
+    max-width: 100%;
+    font-size: $mobile-description-size;
+  }
+}

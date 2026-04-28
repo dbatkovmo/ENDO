@@ -1,0 +1,42 @@
+.kbju-page__page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.kbju-page__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.kbju-page__icon {
+  font-size: 40px;
+  color: #1677ff;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.kbju-page__title {
+  margin: 0 0 8px !important;
+}
+
+.kbju-page__subtitle {
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0 !important;
+}
+
+.kbju-page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.kbju-page__form-card,
+.kbju-page__result-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.kbju-page__divider {
+  margin: 24px 0;
+}

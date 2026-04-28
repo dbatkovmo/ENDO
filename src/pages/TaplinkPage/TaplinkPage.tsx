@@ -26,6 +26,8 @@ import {
 } from 'lucide-react'
 import doctorImage from '@/assets/doctor-cutout.png'
 import plantImage from '@/assets/plant-vase.png'
+import plantDecorImage from '@/assets/plant.png'
+import signatureImage from '@/assets/signature.png'
 import './TaplinkPage.scss'
 
 type IconText = {
@@ -228,6 +230,15 @@ export function TaplinkPage() {
               )
             })}
           </div>
+        </section>
+
+        <section className="taplink__doctor-note">
+          <div className="taplink__doctor-note-content">
+            <h2>Вам не нужно разбираться во всём самой</h2>
+            <p>Я помогу вам спокойно восстановить здоровье и вернуть нормальное самочувствие</p>
+            <img src={signatureImage} alt="В. Маскаева" className="taplink__doctor-note-signature" />
+          </div>
+          <img src={plantDecorImage} alt="" className="taplink__doctor-note-plant" />
         </section>
 
         <section className="taplink__faq">

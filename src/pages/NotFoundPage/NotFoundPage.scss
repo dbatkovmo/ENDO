@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+
+$not-found-primary: #3f4f3a;
+$not-found-bg: #faf7f3;
+$not-found-text: #1f2a22;
+$not-found-muted: #6b6f66;
+
+.not-found {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: $not-found-bg;
+  color: $not-found-text;
+}
+
+.not-found__container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 42px 28px 36px;
+  background: radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.82), transparent 34%),
+  $not-found-bg;
+}
+
+.not-found__decor {
+  position: absolute;
+  z-index: 1;
+  width: 200px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.not-found__decor--top {
+  top: -3px;
+  right: -37px;
+  transform: rotate(-34deg);
+}
+
+.not-found__decor--bottom {
+  bottom: -83px;
+  left: -39px;
+  transform: rotate(41deg);
+}
+
+.not-found__brand,
+.not-found__content,
+.not-found__actions {
+  position: relative;
+  z-index: 1;
+}
+
+.not-found__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $not-found-primary;
+  text-align: center;
+}
+
+.not-found__brand-mark {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(63, 79, 58, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1;
+  box-shadow: 0 18px 42px rgba(63, 79, 58, 0.09);
+}
+
+.not-found__brand-name {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.not-found__brand-caption {
+  margin-top: 3px;
+  color: rgba(63, 79, 58, 0.72);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.not-found__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 42px;
+  text-align: center;
+}
+
+.not-found__code {
+  color: $not-found-primary;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 112px;
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.not-found__title {
+  margin: 22px 0 0;
+  color: $not-found-primary;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.18;
+}
+
+.not-found__text {
+  max-width: 302px;
+  margin: 16px 0 0;
+  color: $not-found-muted;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.not-found__note {
+  max-width: 304px;
+  margin: 22px 0 0;
+  color: $not-found-primary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.not-found__actions {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 38px;
+}
+
+.not-found__primary-button {
+  display: flex;
+  width: 100%;
+  max-width: 306px;
+  height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-radius: 999px;
+  background: $not-found-primary;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 18px 32px rgba(63, 79, 58, 0.2);
+}
+
+.not-found__socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 22px;
+
+  span {
+    color: $not-found-muted;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+}
+
+.not-found__social-list {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+
+  a {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid $not-found-primary;
+    border-radius: 999px;
+    color: $not-found-primary;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.4);
+  }
+}

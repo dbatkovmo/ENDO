@@ -9,6 +9,7 @@ import { SweetCravingPage } from '@/pages/SweetCravingPage'
 import { DayRationAnalysisPage } from '@/pages/DayRationAnalysisPage'
 import { FatBurnForecastPage } from '@/pages/FatBurnForecastPage'
 import { NeedAnalysesPage } from '@/pages/NeedAnalysesPage'
+import { ComingSoonPage } from '@/pages/ComingSoonPage'
 import { TaplinkPage } from '@/pages/TaplinkPage'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<TaplinkPage />} />
+        <Route index element={<ComingSoonPage />} />
         <Route path="/taplink" element={<TaplinkPage />} />
         <Route path="/apps" element={<MiniAppsLayout />}>
           <Route index element={<AppsListPage />} />
