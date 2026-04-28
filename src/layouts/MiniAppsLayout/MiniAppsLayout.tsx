@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom'
 import { Layout } from 'antd'
 import { AppsHeader } from '@/components/AppsHeader'
-import styles from './MiniAppsLayout.module.scss'
+import './MiniAppsLayout.scss'
 
 const { Content } = Layout
 
 export function MiniAppsLayout() {
   return (
-    <Layout className={styles.layout}>
+    <Layout className="mini-apps__layout">
       <AppsHeader />
-      <Content className={styles.content}>
+      <Content className="mini-apps__content">
         <Outlet />
       </Content>
     </Layout>

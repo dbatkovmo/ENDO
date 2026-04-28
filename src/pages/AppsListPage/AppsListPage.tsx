@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import styles from './AppsListPage.module.scss'
+import './AppsListPage.scss'
 
 const apps = [
   {
@@ -72,39 +72,33 @@ export function AppsListPage() {
   const navigate = useNavigate()
 
   return (
-    <div className={styles.page}>
-      <div className={styles.hero}>
-        <div className={styles.heroGlow} />
-        <h1 className={styles.title}>Мини-приложения</h1>
-        <p className={styles.subtitle}>
+    <div className="apps-list">
+      <div className="apps-list__hero">
+        <div className="apps-list__hero-glow" />
+        <h1 className="apps-list__title">Мини-приложения</h1>
+        <p className="apps-list__subtitle">
           Полезные инструменты для контроля здоровья и достижения целей
         </p>
       </div>
 
-      <div className={styles.grid}>
+      <div className="apps-list__grid">
         {apps.map((app) => (
           <button
             key={app.key}
             type="button"
-            className={`${styles.card} ${styles[app.tone]}`}
+            className={`apps-list__card apps-list__card--${app.tone}`}
             onClick={() => navigate(app.path)}
           >
-            <div className={styles.visual}>
-              <div className={styles.medallion}>
-                <span className={styles.emoji}>{app.emoji}</span>
-              </div>
-              <div className={styles.branch} aria-hidden="true">
-                <span className={styles.stem} />
-                <span className={`${styles.leaf} ${styles.leafTop}`} />
-                <span className={`${styles.leaf} ${styles.leafMiddle}`} />
-                <span className={`${styles.leaf} ${styles.leafBottom}`} />
+            <div className="apps-list__visual">
+              <div className="apps-list__medallion">
+                <span className="apps-list__emoji">{app.emoji}</span>
               </div>
             </div>
 
-            <div className={styles.cardBody}>
-              <h2 className={styles.cardTitle}>{app.title}</h2>
-              <span className={styles.divider} />
-              <p className={styles.cardDescription}>{app.description}</p>
+            <div className="apps-list__card-body">
+              <h2 className="apps-list__card-title">{app.title}</h2>
+              <span className="apps-list__divider" />
+              <p className="apps-list__card-description">{app.description}</p>
             </div>
           </button>
         ))}

@@ -3,7 +3,7 @@ import { InfoCircleOutlined, ManOutlined, WomanOutlined } from '@ant-design/icon
 import type { CyclePhase, KbjuFormValues } from './kbju.types'
 import { ACTIVITY_LABELS, GOAL_LABELS, getPhaseByDay } from './kbju.utils'
 import { PHASE_CONFIGS } from './cycle.data'
-import styles from './KbjuForm.module.scss'
+import './KbjuForm.scss'
 
 interface Props {
   onCalculate: (values: KbjuFormValues) => void
@@ -39,10 +39,10 @@ export function KbjuForm({ onCalculate }: Props) {
       layout="vertical"
       initialValues={{ gender: 'male', activity: 'moderate', goal: 'maintain', useCycle: false }}
       onFinish={onCalculate}
-      className={styles.form}
+      className="kbju-form__form"
     >
       <Form.Item name="gender" label="Пол">
-        <Radio.Group className={styles.genderGroup}>
+        <Radio.Group className="kbju-form__gender-group">
           <Radio.Button value="male">
             <ManOutlined /> Мужской
           </Radio.Button>
@@ -52,7 +52,7 @@ export function KbjuForm({ onCalculate }: Props) {
         </Radio.Group>
       </Form.Item>
 
-      <div className={styles.row}>
+      <div className="kbju-form__row">
         <Form.Item
           name="age"
           label="Возраст (лет)"
@@ -83,7 +83,7 @@ export function KbjuForm({ onCalculate }: Props) {
       </Form.Item>
 
       <Form.Item name="goal" label="Цель">
-        <Radio.Group className={styles.goalGroup}>
+        <Radio.Group className="kbju-form__goal-group">
           {goalOptions.map((opt) => (
             <Radio.Button key={opt.value} value={opt.value}>
               {opt.label}
@@ -96,12 +96,12 @@ export function KbjuForm({ onCalculate }: Props) {
       <Form.Item noStyle shouldUpdate={(prev, cur) => prev.gender !== cur.gender}>
         {({ getFieldValue }) =>
           getFieldValue('gender') === 'female' ? (
-            <div className={styles.cycleSection}>
-              <div className={styles.cycleSectionHeader}>
-                <span className={styles.cycleSectionTitle}>
+            <div className="kbju-form__cycle-section">
+              <div className="kbju-form__cycle-section-header">
+                <span className="kbju-form__cycle-section-title">
                   Учитывать фазу цикла
                   <Tooltip title="Корректирует калорийность и пропорции КБЖУ в зависимости от фазы менструального цикла">
-                    <InfoCircleOutlined className={styles.infoIcon} />
+                    <InfoCircleOutlined className="kbju-form__info-icon" />
                   </Tooltip>
                 </span>
                 <Form.Item name="useCycle" valuePropName="checked" noStyle>
@@ -112,17 +112,17 @@ export function KbjuForm({ onCalculate }: Props) {
               <Form.Item noStyle shouldUpdate={(prev, cur) => prev.useCycle !== cur.useCycle}>
                 {({ getFieldValue: get }) =>
                   get('useCycle') ? (
-                    <div className={styles.cycleBody}>
-                      <div className={styles.cycleInputRow}>
+                    <div className="kbju-form__cycle-body">
+                      <div className="kbju-form__cycle-input-row">
                         <Form.Item
                           name="cycleDay"
                           label={
                             <span>
                               День цикла{' '}
-                              <span className={styles.cycleDayHint}>(автоопределяет фазу)</span>
+                              <span className="kbju-form__cycle-day-hint">(автоопределяет фазу)</span>
                             </span>
                           }
-                          className={styles.cycleDayItem}
+                          className="kbju-form__cycle-day-item"
                         >
                           <InputNumber
                             min={1}
@@ -134,10 +134,10 @@ export function KbjuForm({ onCalculate }: Props) {
                         </Form.Item>
                       </div>
 
-                      <p className={styles.orLabel}>или выберите фазу вручную</p>
+                      <p className="kbju-form__or-label">или выберите фазу вручную</p>
 
                       <Form.Item name="cyclePhase" noStyle>
-                        <div className={styles.phases}>
+                        <div className="kbju-form__phases">
                           {PHASES.map(([key, cfg]) => (
                             <Form.Item
                               key={key}
@@ -149,15 +149,15 @@ export function KbjuForm({ onCalculate }: Props) {
                                 return (
                                   <button
                                     type="button"
-                                    className={`${styles.phaseCard} ${active ? styles.phaseCardActive : ''}`}
+                                    className={`kbju-form__phase-card ${active ? 'kbju-form__phase-card--active' : ''}`}
                                     style={active ? { borderColor: cfg.color, background: `${cfg.color}10` } : {}}
                                     onClick={() => handlePhaseClick(key)}
                                   >
-                                    <span className={styles.phaseEmoji}>{cfg.emoji}</span>
-                                    <span className={styles.phaseLabel}>{cfg.label}</span>
-                                    <span className={styles.phaseDays}>{cfg.days}</span>
+                                    <span className="kbju-form__phase-emoji">{cfg.emoji}</span>
+                                    <span className="kbju-form__phase-label">{cfg.label}</span>
+                                    <span className="kbju-form__phase-days">{cfg.days}</span>
                                     <span
-                                      className={styles.phaseDelta}
+                                      className="kbju-form__phase-delta"
                                       style={{ color: cfg.calorieDelta >= 0 ? '#52c41a' : '#ff4d4f' }}
                                     >
                                       {cfg.calorieDelta > 0 ? `+${cfg.calorieDelta}` : cfg.calorieDelta} ккал

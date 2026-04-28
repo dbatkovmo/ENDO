@@ -22,7 +22,7 @@ import {
 import { Button } from 'antd'
 import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
-import styles from './LandingPage.module.scss'
+import './LandingPage.scss'
 
 interface Metric {
   value: string
@@ -98,7 +98,7 @@ const resultMetrics: Metric[] = [
 ]
 
 const heroMetrics: Metric[] = [
-  { value: '10+ лет', label: 'практики', icon: <StarOutlined /> },
+  { value: '10+ лет', label: 'работы с пациентами', icon: <StarOutlined /> },
   { value: '3000+', label: 'пациентов', icon: <TeamOutlined /> },
   { value: '97%', label: 'улучшений', icon: <HeartOutlined /> },
 ]
@@ -125,7 +125,7 @@ const resultCases: CaseItem[] = [
 ]
 
 const educationItems: FeatureItem[] = [
-  { title: '10+ лет практики', icon: <ClockCircleOutlined /> },
+  { title: '10+ лет работы с пациентами', icon: <ClockCircleOutlined /> },
   { title: 'Эндокринология (ординатура), диетология', icon: <ReadOutlined /> },
   { title: 'Трихология, УЗИ, нутрициология, anti-age', icon: <MedicineBoxOutlined /> },
   { title: 'Stanford University, РУДН, ЭНЦ', icon: <TrophyOutlined /> },
@@ -212,11 +212,11 @@ const faqItems = [
 
 function LeafDecoration({ className }: { className?: string }) {
   return (
-    <span className={`${styles.leafDecoration} ${className ?? ''}`} aria-hidden="true">
-      <span className={styles.leafStem} />
-      <span className={`${styles.leaf} ${styles.leafOne}`} />
-      <span className={`${styles.leaf} ${styles.leafTwo}`} />
-      <span className={`${styles.leaf} ${styles.leafThree}`} />
+    <span className={`landing__leaf-decoration ${className ?? ''}`} aria-hidden="true">
+      <span className="landing__leaf-stem" />
+      <span className="landing__leaf landing__leaf--one" />
+      <span className="landing__leaf landing__leaf--two" />
+      <span className="landing__leaf landing__leaf--three" />
     </span>
   )
 }
@@ -233,29 +233,29 @@ function SectionHeading({
   centered?: boolean
 }) {
   return (
-    <div className={`${styles.sectionHeading} ${centered ? styles.sectionHeadingCentered : ''}`}>
-      {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-      <h2 className={styles.sectionTitle}>{title}</h2>
-      {description && <p className={styles.sectionDescription}>{description}</p>}
+    <div className={`landing__section-heading ${centered ? 'landing__section-heading--centered' : ''}`}>
+      {eyebrow && <p className="landing__eyebrow">{eyebrow}</p>}
+      <h2 className="landing__section-title">{title}</h2>
+      {description && <p className="landing__section-description">{description}</p>}
     </div>
   )
 }
 
 export function LandingPage() {
   return (
-    <div className={styles.page}>
-      <div className={styles.backdropGlow} />
+    <div className="landing__page">
+      <div className="landing__backdrop-glow" />
 
-      <header className={styles.topbar}>
-        <Link to="/" className={styles.brand}>
-          <LeafDecoration className={styles.brandLeaf} />
-          <span className={styles.brandCopy}>
-            <span className={styles.brandTitle}>ENDO BALANCE</span>
-            <span className={styles.brandSubtitle}>системный подход к здоровью</span>
+      <header className="landing__topbar">
+        <Link to="/" className="landing__brand">
+          <LeafDecoration className="landing__brand-leaf" />
+          <span className="landing__brand-copy">
+            <span className="landing__brand-title">ENDO BALANCE</span>
+            <span className="landing__brand-subtitle">системный подход к здоровью</span>
           </span>
         </Link>
 
-        <nav className={styles.nav}>
+        <nav className="landing__nav">
           <a href="#about">Обо мне</a>
           <a href="#formats">Услуги</a>
           <a href="#process">Как проходит работа</a>
@@ -264,23 +264,23 @@ export function LandingPage() {
           <a href="#contact">Контакты</a>
         </nav>
 
-        <div className={styles.onlineBadge}>
-          <span className={styles.onlineDot} />
+        <div className="landing__online-badge">
+          <span className="landing__online-dot" />
           Онлайн
         </div>
       </header>
 
-      <main className={styles.main}>
-        <section className={`${styles.section} ${styles.heroSection}`}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>
+      <main className="landing__main">
+        <section className="landing__section landing__hero-section">
+          <div className="landing__hero-content">
+            <h1 className="landing__hero-title">
               Системное восстановление
               <br />
               гормонального баланса
               <br />
               и метаболизма
             </h1>
-            <p className={styles.heroText}>
+            <p className="landing__hero-text">
               Персональная работа с врачом-эндокринологом.
               <br />
               Без перегрузки препаратами.
@@ -288,47 +288,42 @@ export function LandingPage() {
               С фокусом на причину
             </p>
 
-            <div className={styles.heroActions}>
-              <a href="#contact" className={styles.primaryLink}>
-                <Button type="primary" size="large" className={styles.primaryButton}>
+            <div className="landing__hero-actions">
+              <a href="#contact" className="landing__primary-link">
+                <Button type="primary" size="large" className="landing__primary-button">
                   Записаться на консультацию <ArrowRightOutlined />
-                </Button>
-              </a>
-              <a href="#contact" className={styles.secondaryLink}>
-                <Button size="large" className={styles.secondaryButton}>
-                  <MessageOutlined /> Написать в WhatsApp
                 </Button>
               </a>
             </div>
 
-            <div className={styles.heroStats}>
+            <div className="landing__hero-stats">
               {heroMetrics.map((item) => (
-                <div key={item.label} className={styles.heroStat}>
-                  <span className={styles.heroStatIcon}>{item.icon}</span>
-                  <span className={styles.heroStatValue}>{item.value}</span>
-                  <span className={styles.heroStatLabel}>{item.label}</span>
+                <div key={item.label} className="landing__hero-stat">
+                  <span className="landing__hero-stat-icon">{item.icon}</span>
+                  <span className="landing__hero-stat-value">{item.value}</span>
+                  <span className="landing__hero-stat-label">{item.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={styles.heroVisual}>
-            <div className={styles.heroHalo} />
-            <div className={styles.heroHaloRing} />
-            <div className={styles.portraitCard}>
-              <div className={styles.portraitGlow} />
-              <div className={styles.portraitHead} />
-              <div className={styles.portraitHair} />
-              <div className={styles.portraitNeck} />
-              <div className={styles.portraitInnerTop} />
-              <div className={styles.portraitBlazerLeft} />
-              <div className={styles.portraitBlazerRight} />
-              <div className={styles.portraitArms} />
-              <div className={styles.portraitHands} />
+          <div className="landing__hero-visual">
+            <div className="landing__hero-halo" />
+            <div className="landing__hero-halo-ring" />
+            <div className="landing__portrait-card">
+              <div className="landing__portrait-glow" />
+              <div className="landing__portrait-head" />
+              <div className="landing__portrait-hair" />
+              <div className="landing__portrait-neck" />
+              <div className="landing__portrait-inner-top" />
+              <div className="landing__portrait-blazer-left" />
+              <div className="landing__portrait-blazer-right" />
+              <div className="landing__portrait-arms" />
+              <div className="landing__portrait-hands" />
             </div>
 
-            <div className={styles.quoteCard}>
-              <span className={styles.quoteMark}>❝</span>
+            <div className="landing__quote-card">
+              <span className="landing__quote-mark">❝</span>
               <p>
                 Моя цель — не просто убрать симптомы,
                 <br />
@@ -339,12 +334,12 @@ export function LandingPage() {
               <span>Маскаева В.О.</span>
             </div>
 
-            <LeafDecoration className={styles.heroLeaf} />
-            <div className={styles.heroPlantPot} aria-hidden="true" />
+            <LeafDecoration className="landing__hero-leaf" />
+            <div className="landing__hero-plant-pot" aria-hidden="true" />
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.cardSection}`}>
+        <section className="landing__section landing__card-section">
           <SectionHeading
             eyebrow="Вы здесь, потому что"
             title="Сигналы, которые обычно уже нельзя игнорировать"
@@ -352,43 +347,43 @@ export function LandingPage() {
             centered
           />
 
-          <div className={styles.painsGrid}>
+          <div className="landing__pains-grid">
             {painPoints.map((item) => (
-              <article key={item.title} className={styles.softCard}>
-                <span className={styles.cardIcon}>{item.icon}</span>
+              <article key={item.title} className="landing__soft-card">
+                <span className="landing__card-icon">{item.icon}</span>
                 <p>{item.title}</p>
               </article>
             ))}
           </div>
 
-          <div className={styles.inlineStatement}>
-            <LeafDecoration className={styles.inlineLeaf} />
+          <div className="landing__inline-statement">
+            <LeafDecoration className="landing__inline-leaf" />
             <p>Это не норма. И это можно исправить</p>
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.twoColumnSection}`}>
-          <article className={styles.panel}>
+        <section className="landing__section landing__two-column-section">
+          <article className="landing__panel">
             <SectionHeading
               eyebrow="Почему не получается"
               title="Большинство подходов работают с симптомами, а не с причиной"
             />
-            <ul className={styles.checkList}>
+            <ul className="landing__check-list">
               <li>Организм — это система: гормоны, обмен веществ, питание, стресс и дефициты.</li>
               <li>Если не учитывать всё сразу — результат временный или отсутствует.</li>
               <li>Попытки “лечить по одному анализу” редко дают системный эффект.</li>
             </ul>
-            <div className={styles.callout}>
+            <div className="landing__callout">
               Я работаю иначе: нахожу причину и выстраиваю систему восстановления.
             </div>
           </article>
 
-          <article className={`${styles.panel} ${styles.approachPanel}`}>
+          <article className="landing__panel landing__panel--approach">
             <SectionHeading eyebrow="Мой подход" title="Системная работа вместо случайных решений" />
-            <div className={styles.featureList}>
+            <div className="landing__feature-list">
               {approachItems.map((item) => (
-                <div key={item.title} className={styles.featureItem}>
-                  <span className={styles.featureBullet}>{item.icon}</span>
+                <div key={item.title} className="landing__feature-item">
+                  <span className="landing__feature-bullet">{item.icon}</span>
                   <div>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
@@ -396,83 +391,83 @@ export function LandingPage() {
                 </div>
               ))}
             </div>
-            <LeafDecoration className={styles.panelLeaf} />
+            <LeafDecoration className="landing__panel-leaf" />
           </article>
         </section>
 
-        <section id="results" className={styles.section}>
+        <section id="results" className="landing__section">
           <SectionHeading eyebrow="Результаты" title="Измеримый эффект системной работы" centered />
-          <div className={styles.metricsGrid}>
+          <div className="landing__metrics-grid">
             {resultMetrics.map((item) => (
-              <article key={item.label} className={styles.metricCard}>
-                <span className={styles.metricIcon}>{item.icon}</span>
-                <div className={styles.metricValue}>{item.value}</div>
+              <article key={item.label} className="landing__metric-card">
+                <span className="landing__metric-icon">{item.icon}</span>
+                <div className="landing__metric-value">{item.value}</div>
                 <p>{item.label}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className={styles.section}>
+        <section className="landing__section">
           <SectionHeading eyebrow="Примеры результатов" title="Как меняется самочувствие и качество жизни" centered />
-          <div className={styles.casesGrid}>
+          <div className="landing__cases-grid">
             {resultCases.map((item) => (
-              <article key={item.before} className={`${styles.caseCard} ${styles[item.tone]}`}>
-                <div className={styles.caseCopy}>
-                  <p className={styles.caseLabel}>Было:</p>
-                  <p className={styles.caseText}>{item.before}</p>
-                  <p className={styles.caseLabel}>Стало:</p>
-                  <p className={styles.caseText}>{item.after}</p>
+              <article key={item.before} className={`landing__case-card landing__case-card--${item.tone}`}>
+                <div className="landing__case-copy">
+                  <p className="landing__case-label">Было:</p>
+                  <p className="landing__case-text">{item.before}</p>
+                  <p className="landing__case-label">Стало:</p>
+                  <p className="landing__case-text">{item.after}</p>
                 </div>
-                <div className={`${styles.caseArt} ${styles[`caseArt${item.art[0].toUpperCase()}${item.art.slice(1)}`]}`} aria-hidden="true" />
+                <div className={`landing__case-art landing__case-art-${item.art}`} aria-hidden="true" />
               </article>
             ))}
           </div>
         </section>
 
-        <section id="about" className={`${styles.section} ${styles.twoColumnSection}`}>
-          <article className={styles.panel}>
+        <section id="about" className="landing__section landing__two-column-section">
+          <article className="landing__panel">
             <SectionHeading eyebrow="Обо мне" title="Маскаева Валентина Олеговна" />
-            <p className={styles.aboutLead}>Врач-эндокринолог, диетолог, нутрициолог</p>
-            <ul className={styles.infoList}>
+            <p className="landing__about-lead">Врач-эндокринолог, диетолог, нутрициолог</p>
+            <ul className="landing__info-list">
               {educationItems.map((item) => (
                 <li key={item.title}>
-                  <span className={styles.infoIcon}>{item.icon}</span>
+                  <span className="landing__info-icon">{item.icon}</span>
                   <span>{item.title}</span>
                 </li>
               ))}
             </ul>
-            <div className={styles.doctorMiniCard}>
-              <div className={styles.doctorMiniPortrait} />
+            <div className="landing__doctor-mini-card">
+              <div className="landing__doctor-mini-portrait" />
               <div>
-                <p className={styles.doctorMiniTitle}>Подход без крайностей</p>
-                <p className={styles.doctorMiniText}>
+                <p className="landing__doctor-mini-title">Подход без крайностей</p>
+                <p className="landing__doctor-mini-text">
                   Понятные объяснения, аккуратная диагностика и план, который можно внедрить в реальную жизнь.
                 </p>
               </div>
             </div>
           </article>
 
-          <article className={`${styles.panel} ${styles.requestsPanel}`}>
+          <article className="landing__panel landing__panel--requests">
             <SectionHeading eyebrow="С какими запросами я работаю" title="Сложные эндокринные задачи, которые требуют системы" />
-            <ul className={styles.requestList}>
+            <ul className="landing__request-list">
               {requestItems.map((item) => (
                 <li key={item.title}>
-                  <span className={styles.requestIcon}>{item.icon}</span>
+                  <span className="landing__request-icon">{item.icon}</span>
                   <span>{item.title}</span>
                 </li>
               ))}
             </ul>
-            <div className={styles.watermark}>Системный подход к здоровью</div>
+            <div className="landing__watermark">Системный подход к здоровью</div>
           </article>
         </section>
 
-        <section id="formats" className={styles.section}>
+        <section id="formats" className="landing__section">
           <SectionHeading eyebrow="Форматы работы" title="Выбираем глубину работы под вашу задачу" centered />
-          <div className={styles.formatGrid}>
+          <div className="landing__format-grid">
             {workFormats.map((item) => (
-              <article key={item.title} className={styles.formatCard}>
-                <span className={styles.formatIcon}>{item.icon}</span>
+              <article key={item.title} className="landing__format-card">
+                <span className="landing__format-icon">{item.icon}</span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </article>
@@ -480,46 +475,46 @@ export function LandingPage() {
           </div>
         </section>
 
-        <section id="process" className={styles.section}>
+        <section id="process" className="landing__section">
           <SectionHeading eyebrow="Как проходит работа" title="Понятный маршрут без хаоса и догадок" centered />
-          <div className={styles.processGrid}>
+          <div className="landing__process-grid">
             {processSteps.map((item, index) => (
-              <article key={item} className={styles.processCard}>
-                <span className={styles.processStep}>{index + 1}</span>
+              <article key={item} className="landing__process-card">
+                <span className="landing__process-step">{index + 1}</span>
                 <p>{item}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className={`${styles.section} ${styles.twoColumnSection}`}>
-          <article className={styles.panel}>
+        <section className="landing__section landing__two-column-section">
+          <article className="landing__panel">
             <SectionHeading eyebrow="Онлайн — это эффективно" title="Большинство задач реально решить без поездок" />
-            <ul className={styles.checkList}>
+            <ul className="landing__check-list">
               {onlineBenefits.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <div className={styles.laptopMock}>
-              <div className={styles.laptopScreen} />
-              <div className={styles.laptopBase} />
+            <div className="landing__laptop-mock">
+              <div className="landing__laptop-screen" />
+              <div className="landing__laptop-base" />
             </div>
           </article>
 
-          <article className={styles.panel}>
+          <article className="landing__panel">
             <SectionHeading eyebrow="Для кого это" title="Формат, который подходит не всем — и это нормально" />
-            <div className={styles.fitColumns}>
-              <div className={styles.fitCard}>
+            <div className="landing__fit-columns">
+              <div className="landing__fit-card">
                 <h3>Подойдёт вам, если:</h3>
-                <ul className={styles.checkListCompact}>
+                <ul className="landing__check-list-compact">
                   {fitItems.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
               </div>
-              <div className={styles.fitCard}>
+              <div className="landing__fit-card">
                 <h3>Может не подойти, если:</h3>
-                <ul className={styles.checkListCompact}>
+                <ul className="landing__check-list-compact">
                   {notFitItems.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
@@ -529,25 +524,25 @@ export function LandingPage() {
           </article>
         </section>
 
-        <section id="contact" className={`${styles.section} ${styles.ctaSection}`}>
-          <div className={styles.ctaCard}>
-            <p className={styles.ctaEyebrow}>Индивидуальная консультация с врачом</p>
-            <h2 className={styles.ctaSimpleTitle}>Системный разбор жалоб, анализов и тактики лечения</h2>
-            <div className={styles.ctaActions}>
-              <Button type="primary" size="large" className={styles.primaryButton}>
+        <section id="contact" className="landing__section landing__cta-section">
+          <div className="landing__cta-card">
+            <p className="landing__cta-eyebrow">Индивидуальная консультация с врачом</p>
+            <h2 className="landing__cta-simple-title">Системный разбор жалоб, анализов и тактики лечения</h2>
+            <div className="landing__cta-actions">
+              <Button type="primary" size="large" className="landing__primary-button">
                 Записаться на консультацию <ArrowRightOutlined />
               </Button>
-              <p className={styles.ctaHint}>Ответ в течение 24 часов</p>
+              <p className="landing__cta-hint">Ответ в течение 24 часов</p>
             </div>
           </div>
         </section>
 
-        <section id="faq" className={`${styles.section} ${styles.faqSection}`}>
-          <div className={styles.faqCard}>
+        <section id="faq" className="landing__section landing__faq-section">
+          <div className="landing__faq-card">
             <SectionHeading eyebrow="FAQ" title="Частые вопросы" />
-            <div className={styles.faqList}>
+            <div className="landing__faq-list">
               {faqItems.map((item) => (
-                <details key={item.question} className={styles.faqItem}>
+                <details key={item.question} className="landing__faq-item">
                   <summary>{item.question}</summary>
                   <p>{item.answer}</p>
                 </details>
@@ -555,17 +550,17 @@ export function LandingPage() {
             </div>
           </div>
 
-          <div className={styles.finalCard}>
-            <LeafDecoration className={styles.finalLeaf} />
+          <div className="landing__final-card">
+            <LeafDecoration className="landing__final-leaf" />
             <h2>Если вы хотите системно разобраться со здоровьем и получить понятный план действий</h2>
-            <div className={styles.finalActions}>
-              <Button type="primary" size="large" className={styles.primaryButton}>
+            <div className="landing__final-actions">
+              <Button type="primary" size="large" className="landing__primary-button">
                 Записаться на консультацию <ArrowRightOutlined />
               </Button>
-              <div className={styles.contactChips}>
-                <span className={styles.contactChip}><MessageOutlined /> WhatsApp</span>
-                <span className={styles.contactChip}><MessageOutlined /> Telegram</span>
-                <span className={styles.contactChip}><PhoneOutlined /> Позвонить</span>
+              <div className="landing__contact-chips">
+                <span className="landing__contact-chip"><MessageOutlined /> WhatsApp</span>
+                <span className="landing__contact-chip"><MessageOutlined /> Telegram</span>
+                <span className="landing__contact-chip"><PhoneOutlined /> Позвонить</span>
               </div>
             </div>
           </div>

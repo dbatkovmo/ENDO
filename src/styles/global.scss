@@ -1,5 +1,5 @@
 @use 'variables' as *;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 *,
 *::before,
@@ -15,9 +15,9 @@ html {
 
 body {
   margin: 0;
-  font-family: $font-family;
+  font-family: 'Manrope', $font-family;
   color: $color-text;
-  background-color: $color-bg;
+  background-color: #394036;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,7 +32,7 @@ p {
 }
 
 a {
-  color: $color-primary;
+  text-decoration: none;
 }
 
 img {

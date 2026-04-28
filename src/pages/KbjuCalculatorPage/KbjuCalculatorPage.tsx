@@ -3,7 +3,7 @@ import { Card, Divider, Typography } from 'antd'
 import { CalculatorOutlined } from '@ant-design/icons'
 import { KbjuForm, KbjuResult, calculate } from '@/features/kbju-calculator'
 import type { KbjuFormValues, KbjuResultType } from '@/features/kbju-calculator'
-import styles from './KbjuCalculatorPage.module.scss'
+import './KbjuCalculatorPage.scss'
 
 const { Title, Paragraph } = Typography
 
@@ -15,24 +15,24 @@ export function KbjuCalculatorPage() {
   }
 
   return (
-    <div className={styles.page}>
-      <div className={styles.header}>
-        <CalculatorOutlined className={styles.icon} />
-        <Title level={2} className={styles.title}>Калькулятор КБЖУ</Title>
-        <Paragraph className={styles.subtitle}>
+    <div className="kbju-page__page">
+      <div className="kbju-page__header">
+        <CalculatorOutlined className="kbju-page__icon" />
+        <Title level={2} className="kbju-page__title">Калькулятор КБЖУ</Title>
+        <Paragraph className="kbju-page__subtitle">
           Рассчитайте суточную норму калорий, белков, жиров и углеводов
         </Paragraph>
       </div>
 
-      <div className={styles.content}>
-        <Card className={styles.formCard} title="Ваши параметры">
+      <div className="kbju-page__content">
+        <Card className="kbju-page__form-card" title="Ваши параметры">
           <KbjuForm onCalculate={handleCalculate} />
         </Card>
 
         {result && (
           <>
-            <Divider className={styles.divider} />
-            <Card className={styles.resultCard} title="Ваш результат">
+            <Divider className="kbju-page__divider" />
+            <Card className="kbju-page__result-card" title="Ваш результат">
               <KbjuResult result={result} />
             </Card>
           </>
