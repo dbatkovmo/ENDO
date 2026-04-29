@@ -25,6 +25,7 @@ import {
   Users,
 } from 'lucide-react'
 import doctorImage from '@/assets/doctor-cutout.png'
+import logoImage from '@/assets/logo.png'
 import plantImage from '@/assets/plant-vase.png'
 import plantDecorImage from '@/assets/plant.png'
 import signatureImage from '@/assets/signature.png'
@@ -116,6 +117,7 @@ export function TaplinkPage() {
               <br />
               это баланс
             </h1>
+            <img src={logoImage} alt="Valentina Maskaeva" className="taplink__logo" />
             <p className="taplink__subtitle">
               Гормоны, энергия, вес —
               <br />
@@ -250,7 +252,6 @@ export function TaplinkPage() {
           <Collapse
             accordion
             ghost
-            defaultActiveKey={['0']}
             className="taplink__faq-collapse"
             expandIconPosition="end"
             expandIcon={({ isActive }) =>

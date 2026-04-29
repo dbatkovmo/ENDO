@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Link } from 'lucide-react'
-import leavesDecorImage from '@/shared/assets/images/leaves-decor.png'
+import leavesDecorImage from '@/assets/leaves-decor.png'
 import './ComingSoonPage.scss'
 
 export function ComingSoonPage() {

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, MessageCircle, Send } from 'lucide-react'
-import leavesImageDecor from '@/shared/assets/images/leaves-decor.png'
+import leavesImageDecor from '@/assets/leaves-decor.png'
 import './NotFoundPage.scss'
 
 export function NotFoundPage() {
