@@ -41,40 +41,14 @@ $coming-soon-card: rgba(255, 255, 255, 0.46);
 
 .coming-soon__logo {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $coming-soon-primary;
-  text-align: center;
-}
-
-.coming-soon__logo-mark {
-  display: flex;
-  width: 72px;
-  height: 72px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(63, 79, 58, 0.18);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.62);
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1;
-  box-shadow: 0 18px 42px rgba(63, 79, 58, 0.09);
 }
 
-.coming-soon__logo-name {
-  margin-top: 14px;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.25;
-}
-
-.coming-soon__logo-caption {
-  margin-top: 4px;
-  color: rgba(63, 79, 58, 0.72);
-  font-size: 13px;
-  line-height: 1.3;
+.coming-soon__logo-image {
+  display: block;
+  width: min(190px, 58vw);
+  height: auto;
 }
 
 .coming-soon__content {
@@ -174,10 +148,8 @@ $coming-soon-card: rgba(255, 255, 255, 0.46);
     border-radius: 28px;
   }
 
-  .coming-soon__logo-mark {
-    width: 64px;
-    height: 64px;
-    font-size: 28px;
+  .coming-soon__logo-image {
+    width: min(176px, 64vw);
   }
 
   .coming-soon__content {

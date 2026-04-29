@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, MessageCircle, Send } from 'lucide-react'
 import leavesImageDecor from '@/assets/leaves-decor.png'
+import logoImage from '@/assets/logo.png'
 import './NotFoundPage.scss'
 
 export function NotFoundPage() {
@@ -18,10 +19,8 @@ export function NotFoundPage() {
       />
 
       <section className="not-found__container">
-        <header className="not-found__brand" aria-label="Вера Маскаева, нутрициолог">
-          <div className="not-found__brand-mark">ВМ</div>
-          <div className="not-found__brand-name">Вера Маскаева</div>
-          <div className="not-found__brand-caption">нутрициолог</div>
+        <header className="not-found__brand">
+          <img src={logoImage} alt="Вера Маскаева, нутрициолог" className="not-found__brand-logo" />
         </header>
 
         <div className="not-found__content">

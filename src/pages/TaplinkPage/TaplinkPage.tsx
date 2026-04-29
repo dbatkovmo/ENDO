@@ -112,12 +112,12 @@ export function TaplinkPage() {
       <div className="taplink__canvas">
         <section className="taplink__hero">
           <div className="taplink__hero-copy">
+            <img src={logoImage} alt="Valentina Maskaeva" className="taplink__logo" />
             <h1 className="taplink__title">
               Здоровье —
               <br />
               это баланс
             </h1>
-            <img src={logoImage} alt="Valentina Maskaeva" className="taplink__logo" />
             <p className="taplink__subtitle">
               Гормоны, энергия, вес —
               <br />

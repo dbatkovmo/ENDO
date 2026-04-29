@@ -1,6 +1,7 @@
 import { Link as RouterLink } from 'react-router-dom'
 import { Link } from 'lucide-react'
 import leavesDecorImage from '@/assets/leaves-decor.png'
+import logoImage from '@/assets/logo.png'
 import './ComingSoonPage.scss'
 
 export function ComingSoonPage() {
@@ -18,10 +19,8 @@ export function ComingSoonPage() {
       />
 
       <section className="coming-soon__container">
-        <header className="coming-soon__logo" aria-label="Вера Маскаева, нутрициолог">
-          <div className="coming-soon__logo-mark">ВМ</div>
-          <div className="coming-soon__logo-name">Вера Маскаева</div>
-          <div className="coming-soon__logo-caption">нутрициолог</div>
+        <header className="coming-soon__logo">
+          <img src={logoImage} alt="Вера Маскаева, нутрициолог" className="coming-soon__logo-image" />
         </header>
 
         <div className="coming-soon__content">
